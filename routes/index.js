@@ -1,9 +1,13 @@
 var express = require('express');
-var router = express.Router();
+const usersRouter = require('./users');
+var indexRouter = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+indexRouter.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express'});
 });
-
-module.exports = router;
+indexRouter.get('/markets',function (req,res,next) {
+  res.render('markets',{title: 'Markets',layout:'other_layout'})
+})
+indexRouter.use('/users/',usersRouter)
+module.exports = indexRouter;
