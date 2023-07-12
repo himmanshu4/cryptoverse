@@ -1,0 +1,15 @@
+#jk a{
+    color:black;
+    font-weight: bolder ;
+}
+#jk li{
+    margin: 5px;
+
+}
+#jk li:hover{
+
+    background-color: gold;
+}
+.nav-itemleft{
+    float:left
+}
