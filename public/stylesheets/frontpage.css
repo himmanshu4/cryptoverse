@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  body{
+    
+    color:white;
+    margin: 0px;  
+    padding: 0px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
+    font-family: cursive;
+    
+    }
+
+  
+  
+  
+  .topnav {
+    overflow: hidden;
+    background: transparent;
+    
+  }
+  .topnav ul{text-align: center;
+  margin-top: 25px;}
+  .topnav ul button{
+    float: left;
+    background-color: rgb(247, 197, 104);
+    margin-left: 10px;
+    border-radius: 5px;
+    border-color: rgb(243, 170, 35);
+    color: white;
+  }
+  .topnav ul button:hover{
+    color:white;
+    background-color: coral;
+  }
+  
+  /* Style the topnav links */
+  .topnav li {
+    display:inline-block;}
+  .topnav a{
+    margin-top: 8px;
+    font-size:20px ;
+    color:rgb(12, 7, 7);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .topnav img{
+      float: right;
+      margin-top: 8px;
+      margin-right: 15px;
+      width: 150px;
+      height: 70px;
+  }
+  .topnav button{
+    left: 0px;
+  } 
+  .topnav a:hover {
+    background-color: rgb(230, 135, 58);
+    color: rgb(252, 253, 252);
+    
+  }  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(12, 11, 11);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 10px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(8, 5, 5);
+    padding: 5px 10px;
+    border: none;
+    margin-top: 0px;
+    margin-left: 0cm;
+    border:1px black ;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+  
+   #main {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-top: 0px ;
+    margin-left: 5px;
+  } @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+  .d-block{
+    margin-top: 0cm;
+    width: 100%;
+    height: 600px;
+  }
+  .Overall_chart h1{
+   font-size:30px;
+    text-align:center;
+    color:black;
+    text-decoration:bold;
+    font-family:  "Times New Roman", Times, serif;
+  }
+  .tradingview-widget-container{
+    margin-top: 0px;
+  }
+  
+   
+ 
+
+  .tradingview-widget-container{
+    width: 100%;
+    height:100%;
+  }
+  .container-tradebtn{
+    background-color: #f3f3f3;
+  }
+  .container-tradebtn h1{
+    font-size: 50px;
+    font-family:  "Times New Roman", Times, serif;
+    text-align:center;
+   }
+   .btn-group{
+     margin-bottom: 10px;
+    
+   }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+ .Images img{
+   margin-left: 80px;
+   border-radius: 10px;
+ }
+ .container-fluid{
+   margin-top: 40px;
+  
+ }
+
+ .container-fluid-2{
+  margin: 30px;
+}
+.container-fluid-2 h1{
+  font-size: 60px;
+  text-decoration: none;
+  text-align: center;
+  font-family:  "Times New Roman", Times, serif;
+  color: rgb(75, 73, 73);
+}
+.container-fluid-2 h2{
+  font-family:  "Times New Roman", Times, serif;
+  text-align: center;
+  color: rgb(94, 93, 92);
+  text-decoration: bold;
+}
+.container-fluid-2 p{
+  font-size: 70px;
+  text-decoration: bold;
+  text-align: center;
+  font-family:  "Times New Roman", Times, serif;
+  color: black;
+ 
+}
+.col-sm-7  h1{
+  font-family:"Times New Roman", Times, serif;
+  font-size: 60px;
+  text-decoration:none;
+  color:rgb(212, 182, 84)
+
+  
+}
+
+.col-sm-7  h2{
+  font-family:"Times New Roman", Times, serif;
+  color: rgb(136, 136, 136);
+
+  margin-left: 180px;
+  margin-right: 50px;
+  margin-top: 28px;
+
+
+}
+
+.col-sm-7 span{
+  text-decoration: bold;
+  color: orange;
+}
+
+
+.col-sm-5 h4{
+  text-align: left;
+  font-family:"Times New Roman", Times, serif;
+  color: #444;
+}
+.col-sm-5 span{
+  text-decoration: bold;
+  color: rgb(37, 152, 219);
+  font-size: 40px;
+}
+.col-sm-9 h1{
+  font-size: 60px;
+  text-align: left;
+  color: #414040;
+  text-decoration: bold;
+  font-family:serif;
+}
+
+.col-sm-9 h2{
+  color: #818181;
+  margin: 10px;
+}
+.col-sm-9 span{
+  color: rgb(238, 167, 34);
+  font-size: 50px;
+}
+.footer {
+  background-color: rgb(63, 170, 236);
+  text-align: center;
+  color: #f1f1f1;
+  }
+  
