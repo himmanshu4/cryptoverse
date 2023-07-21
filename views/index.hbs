@@ -1,2 +1,11 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    link=["rates","markets"]
+    for(const key in link){
+        let i=link[key]
+        let elem=`<div><a href=${i}>${i}</a></div>`;
+        $("body").append(elem)
+    }
+</script>

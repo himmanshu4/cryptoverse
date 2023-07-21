@@ -1,20 +1,10 @@
-const { CoinGeckoClient } = require("coingecko-api-v3");
+const  cryptodata  = require("../helper/coingecko");
 const { Router } = require("express");
-const client = new CoinGeckoClient({
-  timeout: 10000,
-  autoRetry: true,
-});
+
 const ratesRouter = Router()
 ratesRouter.get("/",
   async (req, res) => {
-    try {
-      const data = await client.coinList()
-      res.render('rates', { coin: data })
-    } catch (error) {
-      console.log(error)
-      res.send("Server Error")
-    }
-
+    res.render('rates',{coin:cryptodata.rates})
   }
 )
 module.exports = ratesRouter
