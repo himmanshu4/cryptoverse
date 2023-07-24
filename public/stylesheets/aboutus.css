@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  body{
+    
+    color:white;
+    margin: 0px;  
+    padding: 0px;
+    
+    background-image: url('a.jpg');
+    background-position:center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    
+    font-family: "Times New Roman", Times, serif ;
+    
+    }
+    .head{
+       color: cornsilk;
+        background-color: rgb(27, 233, 95);
+        background-attachment: fixed;
+    }
+    h1{ color: white;
+        text-align: center;
+        text-decoration: bold;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    h2{
+        margin-left: 450px;
+        color:white;
+    }
+    hr{
+        color: white;
+    }
