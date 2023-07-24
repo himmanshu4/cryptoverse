@@ -1,0 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Symbol</th>
+    </thead>
+    {{#each coin}}
+    <tr>
+        <td>
+            {{@key}}
+        </td>
+        <td>
+            {{this.usd}}
+        </td>
+    </tr>
+    {{else}}
+    Network error
+    {{/each}}
+</table>
