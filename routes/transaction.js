@@ -1,10 +1,12 @@
 const { Router } = require("express");
 const cryptodata = require("../helper/coingecko");
 const transactionRouter=Router();
-transactionRouter.use((req,res)=>{
-    if(!req.authenticated){
+transactionRouter.use((req,res,next)=>{
+    if(!req.isAuthenticated()){
         res.redirect("/login");
+        return;
     }
+    next();
 })
 transactionRouter.get("/",(req,res)=>{
     res.send("oh hii");

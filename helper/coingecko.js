@@ -1,5 +1,5 @@
 const { CoinGeckoClient } = require("coingecko-api-v3");
-
+const debug = require('debug')('cryptoverse:rates');
 const client = new CoinGeckoClient({
     timeout: 10000,
     autoRetry: true,
@@ -14,7 +14,6 @@ class CryptoData {
         return this._rates;
     }
     set rates(value) {
-        console.log(value)
         this._rates = value;
     }
     refreshRates() {
@@ -23,7 +22,7 @@ class CryptoData {
             vs_currencies: this.vsCurrencies.join(',')
         })
             .then((data) => this.rates = data)
-            .catch((reason) => console.log(reason))
+            .catch((reason) => debug(reason))
     }
 }
 const cryptodata = new CryptoData();
@@ -32,7 +31,7 @@ cryptodata.refreshRates()
 
 //refresh rates continuously periodically
 setInterval(
-   ()=> cryptodata.refreshRates(), 3000
+    () => cryptodata.refreshRates(), 3000
 );
 
 module.exports = cryptodata;

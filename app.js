@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
+const session = require('express-session');
+const passport = require('passport');
 require('./db/mongoconect');
 var app = express();
 
@@ -11,6 +13,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(session({secret:process.env.SESSION_SECRET,resave:false,saveUninitialized:false}));
+app.use(passport.initialize());
+app.use(passport.session({pauseStream:true}))
+require("./helper/passport-setup")
 
 app.use(logger('dev'));
 app.use(express.json());
