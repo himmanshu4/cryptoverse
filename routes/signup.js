@@ -9,8 +9,9 @@ signupRouter.get('/', (req, res) => {
 signupRouter.post("/", async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
+    let email = req.body.email;
     try {
-        const user = new User({ username, password });
+        const user = new User({ username, password, email });
         console.log(await user.validate());
         const result = await user.save();
         res.redirect("/transaction")
