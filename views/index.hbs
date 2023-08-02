@@ -1,4 +1,4 @@
-<h1>{{title}}</h1>
+{{!-- <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
@@ -8,4 +8,335 @@
         let elem = `<div><a href=${i}>${i}</a></div>`;
         $("body").append(elem)
     }
+</script> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crptochamps</title>
+    <link rel="stylesheet" href="frontpage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="Aboutus.html">About Us</a>
+ 
+</div>
+<div class="topnav">
+    <img src="logo1.png">  
+    <ul>
+       <li><a href="/markets">Market </a> </li> 
+       <li><a href="/rates">Trade</a></li>
+       <li><a href="#">Wallets</a></li>
+       <li><a href="chart">Charts</a></li>
+       <button class="openbtn" onclick="openNav()">☰ Menu </button> 
+       <button  onclick="window.location.href = 'signup' ">Register</button>
+       <button  onclick="window.location.href ='login'">Login</button>
+    </ul> 
+ </div>
+
+<body>
+  
+ <!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+  </div>
+  
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="1 (11).jpg" alt="Los Angeles" class="d-block" style="width:100%">
+      <div class="carousel-caption">
+       <!-- <h1>Los Angeles</h1>-->
+        <h1>Cryptoverse</h1><hr>
+        <h2>Start your Trading </h2>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="1 (15).jpg" alt="Chicago" class="d-block" style="width:100% ">
+      <div class="carousel-caption">
+        <h1>Comprehensive charting options</h1><hr>
+        <h1>Hundreds of cryptocurrencies Avaliable</h1>
+      </div> 
+    </div>
+    <div class="carousel-item">
+      <img src="jeremy_bezanger_9opiHRPIvR0_unsplash_crypto_coin.jpg" alt="New York" class="d-block" style="width:100%">
+      <div class="carousel-caption"><hr>
+        <h1>Trade from Anywhere</h1><hr>
+    
+      </div>  
+    </div>
+    <div class="carousel-item">
+      <img src="crypto.jpg" alt="Chicago" class="d-block" style="width:100% ">
+      <div class="carousel-caption">
+        <h1>Real Time</h1><hr>
+        <h2>Price points and Market liquidity</h2>
+      </div> 
+    </div>
+    <div class="carousel-item">
+      <img src="1 (9).jpg" alt="Chicago" class="d-block" style="width:100% ">
+      <div class="carousel-caption">
+      <h2>"It's far better to buy a wonderful company at a fair price than a fair company at a wonderful price"</h2>
+     <hr><h1>Start Trading</h1> </div> 
+    </div>
+  </div>
+  
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text"></span></a> </div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols"= [
+    {
+      "description": "",
+      "proName": "COINBASE:BTCUSD"
+    },
+    {
+      "description": "",
+      "proName": "COINBASE:ETHUSD"
+    },
+    {
+      "description": "",
+      "proName": "BITFINEX:IOTUSD"
+    }
+  ],
+  "colorTheme"= "dark",
+  "isTransparent"=false,
+  "displayMode"= "adaptive",
+  "locale"= "en"
+}
+  </script>
+</div>
+
+
+
+
+
+<div class="Overall_chart">
+    <h1>Overall Chart</h1>
+    <div class="tradingview-widget-container">
+      <div id="tv-medium-widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/COINBASE-BTCUSD/" rel="noopener" target="_blank"><span class="blue-text"></span></a>, <a href="https://www.tradingview.com/symbols/COINBASE-ETHUSD/" rel="noopener" target="_blank"><span class="blue-text"></span></a> <span class="blue-text"></span> <a href="https://www.tradingview.com/symbols/BITFINEX-IOTUSD/" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+      new TradingView.MediumWidget(
+      {
+      "container_id": "tv-medium-widget",
+      "symbols": [
+        [
+          "BTC",
+          "COINBASE:BTCUSD|12m"
+        ],
+        [
+          "ETH",
+          "COINBASE:ETHUSD|12m"
+        ],
+        [
+          "IOT",
+          "BITFINEX:IOTUSD|12m"
+        ]
+      ],
+      "greyText": "Quotes by",
+      "gridLineColor": "#e9e9ea",
+      "fontColor": "#83888D",
+      "underLineColor": "#dbeffb",
+      "trendLineColor": "#4bafe9",
+      "width": "100%",
+      "height": "450px",
+      "locale": "en"}
+      );
+      </script>
+    </div>
+  </div>
+  <!--trading button-->
+  <div class="container-tradebtn">
+    <h1>Start Trading </h1>
+    <div class="text-center">
+    <div class="btn-group">
+      <button type="button"  onclick="window.location.href = 'signup.html' " class="btn btn-primary">Register</button>
+     
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary">Trade</button>
+   
+    </div>
+    </div>
+    
+  </div>
+
+   <!-- CRyto currency ticker-->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+  {
+  "symbols"= [
+    {
+      "description": "",
+      "proName": "COINBASE:BTCUSD"
+    },
+    {
+      "description": "",
+      "proName": "COINBASE:ETHUSD"
+    },
+    {
+      "description": "",
+      "proName": "BITFINEX:IOTUSD"
+    }
+  ],
+  "colorTheme"= "dark",
+  "isTransparent"= true,
+  "locale"= "en"
+}
+  </script>
+  </div>
+ <div class="Images">
+  <!--Images-->
+  <a href="https://www.nerdwallet.com/article/investing/cryptocurrency-7-things-to-know">
+    <img src="cryptocurrency.jfif" width="400" height="300"></a>
+  <a href="https://www.youtube.com/watch?v=Yb6825iv0Vk">
+    <img src="Videos on cryptocurreny.jpg" width="400" height="300"></a>
+  <a href="https://www.youtube.com/watch?v=8NgVGnX4KOw">
+      <img src="crpyto2.jfif" width="400" height="300"></a>
+</div>
+  
+ 
+
+
+  
+ 
+<hr>
+<div class="bkg">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-7 bg-white ">
+          
+          <h2> -  Easy <span>Cash</span> and  <span>Withdraw</span> </h2>
+          <h2> -  Provide <span>Native support</span> </h2>
+          <h2> -  Quick <span>Customer support</span> </h2>
+          <h2> -  Trading pairs in <span>Native</span> currency. </h2>
+          <h2> -  <span>Fast</span> and <span>responsive</span> interface .</h2>
+          <h2> - <span> Spot trading</span> ,<span>holding ,software wallets</span>  for <br><span>Virtual storage</span>   of your asset </h2>
+           
+          
+        </div>
+        
+        <div class="col-sm-5 bg-white text-black">
+          <h4>Makes it Easy to <span>Trade</span> </h4>
+          
+         
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/COINBASE-BTCUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+            {
+            "showIntervalTabs"= true,
+            "width"= "100%",
+            "colorTheme"= "dark",
+            "isTransparent"= false,
+            "locale"= "en",
+            "symbol"= "COINBASE:BTCUSD",
+            "interval"= "1W",
+            "height"="100%"
+          }
+            </script>
+          </div>
+         <!-- >-->
+        </div>
+      </div>
+    </div>
+</div>
+    <hr>
+
+<!--Mobile trading-->
+<div class="container-fluid-2">
+  <div class="row">
+    <div class="col-sm-7  ">
+      <img src="mobile.png" width="1000" height="800">
+      
+      
+    </div>
+    <div class="col-sm-5 bg-white text-black">
+      <h1>
+        Trade from Anywhere
+      </h1>
+      <h2>Earn where others </h2>
+      <h2> lose With </h2>
+      <p>Cryptoverse</p>
+
+         
+     
+    </div>
+  </div>
+</div><hr>
+<!--Table final-->
+<div class="container-fluid-3">
+  <div class="row">
+    <div class="col-sm-3 ">
+      <img src="tradesupport.jpg" width="350" height="290">
+      </div>
+    <div class="col-sm-9 bg-white text-black">
+      <h1>Cryptoverse</h1>
+      <h2>
+        “  <span>Encourage</span>  and <span>help</span>  an individual to become <span>financially independent</span>  “
+      </h2>
+      
+
+         
+     
+    </div>
+  </div>
+</div>
+
+
+
+   
+      
+        
+  
+  
+             
+  
+</div>
+</div>
+
+</body>
+<script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
 </script>
+<div class="footer"><hr>
+  <h1>Cryptoverse@2021</h1>
+  <hr>
+</div>
+     
+</html>

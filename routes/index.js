@@ -13,7 +13,10 @@ indexRouter.get('/', function(req, res, next) {
 });
 
 indexRouter.get('/markets',function (req,res,next) {
-  res.render('markets',{title: 'Markets',layout:'other_layout'})
+  res.render('markets',{title: 'Markets'})
+})
+indexRouter.get('/chart',(req,res)=>{
+  res.render('chart',{title: 'Charts'})
 })
 indexRouter.get("/profile",(req,res)=>{
   res.render("profile",{user:req.user})

@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/sign.css">
 </head>
 <body>
-  <h1>Sign Up</h1>
-  <form action="" method="POST">
-    <label for="username">Username</label>
-    <input name="username" placeholder="username" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <button>Sign Up</button>
-  </form>
+    <div class="container">
+        <div class="card">
+            <div class="inner-card" id="cards">
+                
+                <div class="card-back">
+                <h2>SIGNUP</h2>
+                  <form>
+                    <input type="text" class="input-box" placeholder="Name" required>
+                      <input type="email" class="input-box" placeholder="Email Id" required>
+                      <input type="password" class="input-box" placeholder="password" required>             
+                      <button type="submit" class="submit-button">Submit</button>
+                      <input type="checkbox"><span>Remember me </span>
+                   
+                    </form>
+                    <button type="button" class="btn"  onclick="window.location.href ='page1.html'">Login</button>
+                    <a href=""> Forgot Password</a>
+                </div>
+                     
+                      
+                  
+            </div>
+        </div>
+    </div>
+<script>
+    var cards=document.getElementsById("cards");
+
+    function openSIGNUP()  {
+        cards.style.transform ="rotateY(-180deg)";
+    }
+    function openLOGIN()  {
+        cards.style.transform ="rotateY(0deg)";
+    }
+</script>
+    
 </body>
 </html>

@@ -2,7 +2,7 @@
 <table>
     <thead>
         <th>Name</th>
-        <th>Symbol</th>
+        <th>Rate</th>
     </thead>
     {{#each coin}}
     <tr>
@@ -11,6 +11,9 @@
         </td>
         <td>
             {{this.usd}}
+        </td>
+        <td>
+            {{this.eur}}
         </td>
     </tr>
     {{else}}

@@ -7,7 +7,7 @@ const client = new CoinGeckoClient({
 class CryptoData {
     constructor() {
         this.coinsID = ["bitcoin", "ethereum"];
-        this.vsCurrencies = ['usd'];
+        this.vsCurrencies = ['usd','eur'];
         this._rates = {};
     }
     get rates() {
