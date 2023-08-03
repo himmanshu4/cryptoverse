@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,40 +8,47 @@
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/sign.css">
 </head>
+
 <body>
+    {{#if error}}
+    <script>
+        setTimeout(()=>alert("{{ error }}"),100)
+    </script>
+    {{/if}}
     <div class="container">
         <div class="card">
             <div class="inner-card" id="cards">
-                
+
                 <div class="card-back">
-                <h2>SIGNUP</h2>
-                  <form>
-                    <input type="text" class="input-box" placeholder="Name" required>
-                      <input type="email" class="input-box" placeholder="Email Id" required>
-                      <input type="password" class="input-box" placeholder="password" required>             
-                      <button type="submit" class="submit-button">Submit</button>
-                      <input type="checkbox"><span>Remember me </span>
-                   
+                    <h2>SIGNUP</h2>
+                    <form method="post">
+                        <input type="text" name="username" class="input-box" placeholder="Name" required>
+                        <input type="email" name="email" class="input-box" placeholder="Email Id" required>
+                        <input type="password" name="password" class="input-box" placeholder="password" required>
+                        <button type="submit" class="submit-button">Submit</button>
+                        <input type="checkbox"><span>Remember me </span>
+
                     </form>
-                    <button type="button" class="btn"  onclick="window.location.href ='page1.html'">Login</button>
+                    <button type="button" class="btn" onclick="window.location.href ='page1.html'">Login</button>
                     <a href=""> Forgot Password</a>
                 </div>
-                     
-                      
-                  
+
+
+
             </div>
         </div>
     </div>
-<script>
-    var cards=document.getElementsById("cards");
+    <script>
+        var cards = document.getElementsById("cards");
 
-    function openSIGNUP()  {
-        cards.style.transform ="rotateY(-180deg)";
-    }
-    function openLOGIN()  {
-        cards.style.transform ="rotateY(0deg)";
-    }
-</script>
-    
+        function openSIGNUP() {
+            cards.style.transform = "rotateY(-180deg)";
+        }
+        function openLOGIN() {
+            cards.style.transform = "rotateY(0deg)";
+        }
+    </script>
+
 </body>
+
 </html>
