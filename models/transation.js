@@ -13,10 +13,12 @@ const TransactionSchema = new Schema({
         type: Number,
         required: true,
     },
-    transactionType: {
-        type:String,
-        enum: ["BUY", "SELL"],
-        required: true,
-    }
+    limitRate: {
+        default: 0,
+        type: Number,
+        required: true
+    },
+    executed: { type: Boolean, required: true }
 });
-module.exports =  TransactionSchema 
+const Transaction = model('Transaction', TransactionSchema);
+module.exports = { TransactionSchema, Transaction }
