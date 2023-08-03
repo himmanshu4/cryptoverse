@@ -9,13 +9,18 @@ signupRouter.get('/', (req, res) => {
 signupRouter.post("/", async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
+    let email = req.body.email;
     try {
-        const user = new User({ username, password });
-        console.log(await user.validate());
-        const result = await user.save();
-        res.redirect("/transaction")
+        const user = new User({ username, password, email });
+        await user.save();
+        res.redirect('login');
     } catch (error) {
-        res.send(error)
+        if (error.code === 11000 && error.keyPattern && error.keyPattern.username) {
+            res.render("signup", { error: "Username must be unique. This username is already taken.", showLogin: true });
+        } else {
+            console.log(error);
+            res.send(error.message);
+        }
     }
 })
 module.exports=signupRouter;

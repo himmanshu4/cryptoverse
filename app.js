@@ -6,13 +6,17 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 const session = require('express-session');
 const passport = require('passport');
-require('./db/mongoconect');
+const dbCheck=require('./db/mongoconect');
+var cookieParser = require('cookie-parser')
 var app = express();
+
+//cookie setup
+app.use(cookieParser())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
+app.use(dbCheck());
 app.use(session({secret:process.env.SESSION_SECRET,resave:false,saveUninitialized:false}));
 app.use(passport.initialize());
 app.use(passport.session({pauseStream:true}))
