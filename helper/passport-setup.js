@@ -17,7 +17,6 @@ passport.use('local', new LocalStrategy(async function verify(username, password
     }
 }));
 passport.serializeUser(function (user, done) {
-    console.log(user,55)
     done(null, user.id);
 });
 passport.deserializeUser(async function (id, done) {
