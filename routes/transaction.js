@@ -18,7 +18,7 @@ transactionRouter.post("/submit", async (req, res, next) => {
     try {
         const transaction = await createTransaction(req.body, req.user);
         const rate = await saveTransactionRate(transaction);
-        
+
         await updateUser(req.user, transaction);
         await req.user.populate('transactions');
         res.render("profile", { user: req.user });
@@ -51,11 +51,17 @@ async function saveTransactionRate(transaction) {
 }
 
 async function updateUser(user, transaction) {
-
+    let coinBal = user.coinBalance.get(transaction.coinID) ?? 0;
     let change = Number(transaction.rate * transaction.quantity);
-    if (transaction.buyOrSell == "sell") change *= -1;
+    if (transaction.buyOrSell == "sell") {
+        change *= -1;
+        coinBal -= transaction.quantity;
+    } else {
+        coinBal += transaction.quantity;
+    }
+    user.coinBalance.set(transaction.coinID, coinBal);
     user.balance -= change;
-    user.transactions.push(transaction)
+    user.transactions.push(transaction);
 
     await user.save();
 }

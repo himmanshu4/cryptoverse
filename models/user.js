@@ -20,6 +20,11 @@ const UserSchema = new Schema(
             default:0,
             required:true
         },
+        coinBalance:{
+            type:Map,
+            of:Number,
+            default:{}
+        },
         transactions: [
             {type:Schema.Types.ObjectId,ref:"Transaction"}
         ]
