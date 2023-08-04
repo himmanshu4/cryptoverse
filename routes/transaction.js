@@ -1,23 +1,63 @@
 const { Router } = require("express");
 const cryptodata = require("../helper/coingecko");
-const transactionRouter=Router();
-transactionRouter.use((req,res,next)=>{
-    if(!req.isAuthenticated()){
+const { Transaction } = require("../models/transaction");
+const transactionRouter = Router();
+
+transactionRouter.use((req, res, next) => {
+    if (!req.isAuthenticated()) {
         res.redirect("/login");
         return;
     }
     next();
 })
-transactionRouter.get("/",(req,res)=>{
-    res.send("oh hii");
+transactionRouter.get("/", (req, res) => {
+    res.render("transaction");
 });
-transactionRouter.post("/",(req,res)=>{
-    const type=req.body.type;
-    const quantity=req.body.quantity;
-    const coinID=req.body.coinID;
-    if(/^(BUY|SELL)$/.test(null)&&/^\d*$/.test(quantity)&&cryptodata.coinsID.includes(coinID)){
-        //valid transaction
-        //TODO: Implement transaction
+transactionRouter.post("/submit", async (req, res, next) => {
+
+    try {
+        console.log(req.body)
+        const transaction = await createTransaction(req.body, req.user);
+        const rate = await saveTransactionRate(transaction);
+        
+        await updateUser(req.user, transaction);
+        await req.user.populate('transactions');
+        res.render("profile", { user: req.user });
+    } catch (error) {
+        if (error.message) res.send(error.message)
+        else
+            next(error)
     }
+
 });
-module.exports=transactionRouter
+
+async function createTransaction(data, user) {
+    const transaction = new Transaction();
+    transaction.user = user._id;
+    transaction.coinID = data.coinID;
+    transaction.quantity = parseInt(data.quantity);
+    transaction.buyOrSell = data.buyOrSell;
+    transaction.limitRate = data.limitRate ?? 0;
+
+    return transaction;
+}
+
+async function saveTransactionRate(transaction) {
+    if (!cryptodata.coinsID.has(transaction.coinID)) {
+        throw { message: "coin does not exist" };
+    }
+    const rate = Number(cryptodata.rates[transaction.coinID]?.usd || 0);
+    transaction.rate = rate;
+    await transaction.save();
+}
+
+async function updateUser(user, transaction) {
+
+    let change = Number(transaction.rate * transaction.quantity);
+    if (transaction.buyOrSell == "sell") change *= -1;
+    user.balance -= change;
+    user.transactions.push(transaction)
+
+    await user.save();
+}
+module.exports = transactionRouter

@@ -6,8 +6,8 @@ const client = new CoinGeckoClient({
 });
 class CryptoData {
     constructor() {
-        this.coinsID = ["bitcoin", "ethereum"];
-        this.vsCurrencies = ['usd','eur'];
+        this.coinsID = new Set(["bitcoin", "ethereum"]); // Use Set to ensure unique values
+        this.vsCurrencies = new Set(['usd','eur']);
         this._rates = {};
     }
     get rates() {
@@ -18,13 +18,14 @@ class CryptoData {
     }
     refreshRates() {
         client.simplePrice({
-            ids: this.coinsID.join(','),
-            vs_currencies: this.vsCurrencies.join(',')
+            ids: [...this.coinsID].join(','), // Convert Set back to an array before joining
+            vs_currencies: [...this.vsCurrencies].join(',')
         })
-            .then((data) => this.rates = data)
+            .then(data => this.rates = data)
             .catch((reason) => debug(reason))
     }
 }
+
 const cryptodata = new CryptoData();
 //get an immediate value
 cryptodata.refreshRates()

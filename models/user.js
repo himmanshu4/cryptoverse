@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const { TransactionSchema } = require("./transation");
+const { TransactionSchema } = require("./transaction");
 
 const UserSchema = new Schema(
     {
@@ -17,18 +17,12 @@ const UserSchema = new Schema(
         },
         balance: {
             type: Number,
-            min: [0, 'Low balance'],
-            default: 10000
+            default:0,
+            required:true
         },
-        deposit: {
-            type: Number,
-            min: [0, 'Low deposits'],
-            default: 10000
-        },
-        transcations: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Transaction',
-        }]
+        transactions: [
+            {type:Schema.Types.ObjectId,ref:"Transaction"}
+        ]
     }
 );
 const User = model('User', UserSchema)

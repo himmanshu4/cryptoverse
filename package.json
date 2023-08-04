@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "coingecko-api-v3": "^0.0.26",
+    "connect-sqlite3": "^0.9.13",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.18.2",
