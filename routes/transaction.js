@@ -16,7 +16,6 @@ transactionRouter.get("/", (req, res) => {
 transactionRouter.post("/submit", async (req, res, next) => {
 
     try {
-        console.log(req.body)
         const transaction = await createTransaction(req.body, req.user);
         const rate = await saveTransactionRate(transaction);
         
