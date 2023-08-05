@@ -1,0 +1,74 @@
+<style>
+    .buy-box, .sell-box {
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        width: 50px;
+    }
+
+    .buy-box {
+        background-color: #2ecc71;
+        color: white;
+    }
+
+    .sell-box {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    /* Animation */
+    .buy-box, .sell-box {
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>
+
+<body>
+    <h3>
+        {{#if user}}
+        <b>Name:</b>{{user.username}}<br>
+        <b>Balance:</b>{{user.balance}}<br>
+        <table>
+            {{#each user.transactions}}
+            <tr>
+                <td>{{this.coinID}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.rate}}</td>
+                <td class="{{this.buyOrSell}}-box">{{this.buyOrSell}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        {{else}}
+
+        <b>Not Signed in</b>
+        {{/if}}
+    </h3>
+    {{!-- <form action="/logout" method="post"> --}}
+        <button type="submit" id="logout">Logout</button>
+        {{!--
+    </form> --}}
+    {{!-- <form action="/logout/forever" method="post"> --}}
+        <button type="submit" id="delete">delete acc</button>
+        {{!--
+    </form> --}}
+    <script>
+        document.getElementById("logout").addEventListener('click', () => {
+            fetch('/logout', { method: "POST" }).then(a => a.text()).then(a => console.log(a))//(a=>{window.location.assign("/")})
+        })
+        document.getElementById("delete").addEventListener('click', () => {
+            fetch('/logout/forever', { method: "POST" }).then(a => a.text()).then(a => console.log(a))
+        })
+    </script>
+</body>

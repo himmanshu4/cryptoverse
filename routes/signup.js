@@ -13,6 +13,10 @@ signupRouter.post("/", async (req, res) => {
     try {
         const user = new User({ username, password, email });
         await user.save();
+        //TODO implement remember me in signup
+        if(req.body.remember==true){
+            passport.authenticate('local')
+        }
         res.redirect('login');
     } catch (error) {
         if (error.code === 11000 && error.keyPattern && error.keyPattern.username) {
