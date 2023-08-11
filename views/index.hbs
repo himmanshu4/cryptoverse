@@ -22,42 +22,7 @@
     <li><a href="/rates">Trade</a></li>
     <li><a href="#">Wallets</a></li>
     <li><a href="/chart">Charts</a></li><!--TODO add chart-->
-    <button class="openbtn" onclickclass Solution {
-public:
-    string minWindow(string s, string t) {
-        map<char,int>m;
-        int mc{};
-        for(auto i:t) m[i]++,mc++;
-        int l=-1,r=-1,min_len=INT_MAX;//s[l](....s[r])
-        string ans="";
-
-        while(r<s.length()){
-            while(r<s.size()-1){
-                //make subs have all characters
-                r++;
-                m[r]--;
-                if(m[r]>=0) mc--;
-                if(mc==0) break;
-
-            }
-            while(l<r){
-                //make substr as small as possible
-                l++;
-                m[l]++;
-                if(m[l]>0) {
-                    mc++;
-                    if(min_len>(r-l+1)){
-                        min_len=r-l+1;
-                        ans=s.substr(l+1,min_len);
-                        cout<<ans;
-                    }
-                    break;
-                }
-            }
-        }
-        return ans;
-    }
-};="openNav()">☰ Menu </button>
+    <button class="openbtn" onclick="openNav()">☰ Menu </button>
     <button onclick="window.location.href = '/signup' ">Register</button>
     <button onclick="window.location.href ='/login'">Login</button>
   </ul>
