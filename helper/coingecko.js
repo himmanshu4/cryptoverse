@@ -5,16 +5,28 @@ const client = new CoinGeckoClient({
     autoRetry: true,
 });
 class CryptoData {
-    constructor() {
-        this.coinsID = new Set(["bitcoin", "ethereum"]); // Use Set to ensure unique values
-        this.vsCurrencies = new Set(['usd','eur']);
+    #refreshID
+    /**
+     * 
+     * @param {String[]} coins 
+     * @param {String[]} vsCurrencies 
+     */
+    constructor(coins=null,vsCurrencies=null) {
+        this.coinsID = new Set(coins??["bitcoin", "ethereum"]); // Use Set to ensure unique values
+        this.vsCurrencies = new Set(vsCurrencies??['usd', 'eur']);
         this._rates = {};
+        client.coinList().then(data => this.allCoins = data);
+        client.simpleSupportedCurrencies().then(data => this.allCurrencies = data)
     }
     get rates() {
         return this._rates;
     }
     set rates(value) {
         this._rates = value;
+    }
+    set refreshRate(t) {
+        if (this.#refreshID) clearInterval(this.#refreshID)
+        this.#refreshID = setInterval(() => this.refreshRates(), t)
     }
     refreshRates() {
         client.simplePrice({
@@ -24,6 +36,32 @@ class CryptoData {
             .then(data => this.rates = data)
             .catch((reason) => debug(reason))
     }
+    /**
+     * 
+     * @param {String} newCoinID id of new coin to be added
+     * @returns true if coin is added else false
+     */
+    addCoin(newCoinID) {
+        if (this.allCoins.find(coin => coin.id == newCoinID)) {
+            this.coinsID.add(newCoinID);
+            this.refreshRates();
+            return true;
+        }
+        else return false;
+    }
+    /**
+     * Add a new currency to current cryptodata 
+     * @param {String} newCurrency new currency to be added
+     * @returns true if added else false
+     */
+    addCurrency(newCurrency) {
+        if (this.allCurrencies.includes(newCurrency)) {
+            this.vsCurrencies.add(newCurrency);
+            this.refreshRates();
+            return true;
+        }
+        else return false;
+    }
 }
 
 const cryptodata = new CryptoData();
@@ -31,8 +69,6 @@ const cryptodata = new CryptoData();
 cryptodata.refreshRates()
 
 //refresh rates continuously periodically
-setInterval(
-    () => cryptodata.refreshRates(), 3000
-);
+cryptodata.refreshRate = 3000
 
 module.exports = cryptodata;

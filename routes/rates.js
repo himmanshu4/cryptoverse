@@ -1,10 +1,11 @@
-const  cryptodata  = require("../helper/coingecko");
+const cryptodata = require("../helper/coingecko");
 const { Router } = require("express");
 
 const ratesRouter = Router()
 ratesRouter.get("/",
   async (req, res) => {
-    res.render('rates',{coin:cryptodata.rates})
+    const vsCurrencies = Array.from(cryptodata.vsCurrencies).map(currency => currency.toUpperCase());
+    res.render('rates', { currency: vsCurrencies })
   }
 )
 module.exports = ratesRouter

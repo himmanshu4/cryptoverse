@@ -1,22 +1,26 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<table>
-    <thead>
-        <th>Name</th>
-        <th>Rate</th>
-    </thead>
-    {{#each coin}}
-    <tr>
-        <td>
-            {{@key}}
-        </td>
-        <td>
-            {{this.usd}}
-        </td>
-        <td>
-            {{this.eur}}
-        </td>
-    </tr>
-    {{else}}
-    Network error
-    {{/each}}
-</table>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Rates</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Crypto Rates</h1>
+        <table class="table table-bordered table-hover" id="cryptoTable">
+            <thead class="thead-dark" id="currencies">
+                
+            </thead>
+            <tbody id="cryptoList">
+                <!-- Crypto rates will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/rates.js"></script>
+</body>
+
+</html>

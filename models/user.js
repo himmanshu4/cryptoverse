@@ -3,7 +3,7 @@ const { TransactionSchema } = require("./transaction");
 
 const UserSchema = new Schema(
     {
-        username: { type: String, required: true,unique:[true,"other user exists"] },
+        username: { type: String, required: true, unique: [true, "other user exists"] },
         password: { type: String, required: true },
         email: {
             type: String,
@@ -17,17 +17,21 @@ const UserSchema = new Schema(
         },
         balance: {
             type: Number,
-            default:0,
-            required:true
+            default: 0,
+            required: true
         },
-        coinBalance:{
-            type:Map,
-            of:Number,
-            default:{}
+        coinBalance: {
+            type: Map,
+            of: Number,
+            default: {}
         },
         transactions: [
-            {type:Schema.Types.ObjectId,ref:"Transaction"}
-        ]
+            { type: Schema.Types.ObjectId, ref: "Transaction" }
+        ],
+        admin: {
+            type: Boolean,
+            default: false,
+        }
     }
 );
 const User = model('User', UserSchema)

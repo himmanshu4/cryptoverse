@@ -1,0 +1,25 @@
+<body>
+    <form id="adminForm" method="post">
+        <label for="type">Type:</label>
+        <select name="type" id="type">
+            <option value="coin">Coin</option>
+            <option value="currency">Currency</option>
+        </select>
+        <label for="coinID">Coin ID:</label>
+        <input list="coinIDs" type="text" id="coinID" name="coinID">
+        <datalist id="coinIDs">
+            {{#each coins}}
+            <option value="{{this.id}}" />
+            {{/each}}
+        </datalist>
+
+        <label for="currency">Currency:</label>
+        <input list="currencies" type="text" id="currency" name="currency">
+        <datalist id="currencies">
+            {{#each currencies}}
+            <option value="{{this}}" />
+            {{/each}}
+        </datalist>
+        <button type="submit">Submit</button>
+    </form>
+</body>

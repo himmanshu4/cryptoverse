@@ -8,6 +8,7 @@ const loginRouter = require('./login');
 const signupRouter = require('./signup');
 const logoutRouter = require('./logout');
 const apiRouter = require('./api');
+const adminRouter = require('./admin');
 /* GET home page. */
 indexRouter.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
@@ -22,12 +23,13 @@ indexRouter.get('/chart', (req, res) => {
 indexRouter.get("/profile", (req, res) => {
   res.render("profile", { user: req.user })
 })
-indexRouter.get("/aboutus",(req,res)=>{
+indexRouter.get("/aboutus", (req, res) => {
   res.render("aboutus")
 })
 indexRouter.use('/login', loginRouter);
 indexRouter.use('/logout', logoutRouter);
 indexRouter.use('/signup', signupRouter);
+indexRouter.use("/admin/", adminRouter);
 indexRouter.use('/users/', usersRouter);
 indexRouter.use('/rates/', ratesRouter);
 indexRouter.use('/transaction', transactionRouter);
