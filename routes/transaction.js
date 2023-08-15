@@ -10,9 +10,9 @@ transactionRouter.use((req, res, next) => {
     }
     next();
 })
-transactionRouter.get("/:meth", (req, res) => {
-    console.log(req.params.meth)
-    res.render("transaction");
+transactionRouter.get("/", (req, res) => {
+    
+    res.render("transaction",{coin:req.body.coinID??"bitcoin",buyOrSell:req.body.buyOrSell??"buy"});
 });
 transactionRouter.post("/submit", async (req, res, next) => {
 

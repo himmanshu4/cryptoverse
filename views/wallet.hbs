@@ -130,10 +130,10 @@
   </div>
   <script>
     document.getElementById("logout").addEventListener('click', () => {
-      fetch('/logout', { method: "POST" }).then(a => a.text()).then(a => console.log(a))
+      fetch('/logout', { method: "POST" }).then(a => a.text()).then(a => {console.log(a);setTimeout(()=>window.location.assign("/"),3000)})
     })
     document.getElementById("delete").addEventListener('click', () => {
-      fetch('/logout/forever', { method: "POST" }).then(a => a.text()).then(a => console.log(a))
+      fetch('/logout/forever', { method: "POST" }).then(a => a.text()).then(a => {console.log(a);setTimeout(()=>window.location.assign("/"),3000)})
     })
   </script>
 </body>

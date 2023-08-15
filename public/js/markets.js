@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(fetchCryptoRates, 5000);
 });
 function buy(coin) {
-window.location.assign(`/transaction/buy?coinID=${coin}`)
+window.location.assign(`/transaction?coinID=${coin}&buyOrSell=buy`)
 }
 function sell(coin) {
-window.location.assign(`/transaction/sell?coinID=${coin}`)
+window.location.assign(`/transaction?coinID=${coin}&buyOrSell=sell`)
 }
