@@ -4,7 +4,7 @@ const async = require("hbs/lib/async");
 const cryptodata = require("../helper/coingecko");
 
 const apiRouter = Router();
-const secureEndpoints = ["/transactions", "/rates"]
+const secureEndpoints = ["/transactions", "/portfolio"]
 secureEndpoints.forEach(route => apiRouter.use(route, (req, res, next) => {
     if (req.isAuthenticated()) {
         next()

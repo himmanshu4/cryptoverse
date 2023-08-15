@@ -3,31 +3,41 @@
 
 <head>
     <title>Transaction Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Add your custom CSS file -->
 </head>
 
 <body>
-    <h1>Transaction Form</h1>
-    <form action="/transaction/submit" method="post">
-        <label for="coinID">Coin ID:</label>
-        <input value="bitcoin" type="text" id="coinID" name="coinID" required><br>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Transaction Form</h1>
+        <form action="/transaction/submit" method="post">
+            <div class="form-group">
+                <label for="coinID">Coin ID:</label>
+                <input value="bitcoin" type="text" id="coinID" name="coinID" class="form-control" required>
+            </div>
 
-        <label for="quantity">Quantity:</label>
-        <input value="1" type="number" id="quantity" name="quantity" min="1" required><br>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input value="1" type="number" id="quantity" name="quantity" min="1" class="form-control" required>
+            </div>
 
-        <label for="rate">Rate:</label>
-        <input value="50" type="number" id="rate" name="rate" required><br>
+            <div class="form-group">
+                <label for="currentPrice">Current Price:</label>
+                <span id="currentPrice" class="font-weight-bold">Loading...</span>
+            </div>
 
-        <label for="limitRate">Limit Rate:</label>
-        <input value="50" type="number" id="limitRate" name="limitRate"><br>
+            <div class="form-group">
+                <label for="buyOrSell">Buy/Sell:</label>
+                <select id="buyOrSell" name="buyOrSell" class="form-control" required>
+                    <option value="buy" class="text-success">Buy</option>
+                    <option value="sell" class="text-warning">Sell</option>
+                </select>
+            </div>
 
-        <label for="buyOrSell">Buy/Sell:</label>
-        <select id="buyOrSell" name="buyOrSell" required>
-            <option value="buy">Buy</option>
-            <option value="sell">Sell</option>
-        </select><br>
-
-        <input type="submit" value="Submit">
-    </form>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script src="/js/transaction.js"></script> <!-- Add your custom JavaScript file -->
 </body>
 
 </html>
