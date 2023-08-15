@@ -1,74 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile</title>
 <style>
-    .buy-box, .sell-box {
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-weight: bold;
-        text-align: center;
-        width: 50px;
-    }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+     background: url("https://wallpaper.dog/large/20530318.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+  .profile-container {
+    text-align: center;
+    background-color:rgba(240, 240, 240, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
 
-    .buy-box {
-        background-color: #2ecc71;
-        color: white;
+    
+  }
+  .profile-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  .buy-box, .sell-box {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    width: 50px;
+    animation: pulse 1s infinite;
+  }
+  .buy-box {
+    background-color: #2ecc71;
+    color: white;
+  }
+  .sell-box {
+    background-color: #e74c3c;
+    color: white;
+  }
+  /* Animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
     }
-
-    .sell-box {
-        background-color: #e74c3c;
-        color: white;
+    50% {
+      transform: scale(1.1);
     }
-
-    /* Animation */
-    .buy-box, .sell-box {
-        animation: pulse 1s infinite;
+    100% {
+      transform: scale(1);
     }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.1);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
+  }
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .action-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .action-button:hover {
+    background-color: #2980b9;
+  }
 </style>
-
+</head>
 <body>
-    <h3>
-        {{#if user}}
-        <b>Name:</b>{{user.username}}<br>
-        <b>Balance:</b>{{user.balance}}<br>
-        <table>
-            {{#each user.transactions}}
+  <div class="profile-container">
+    <div class="profile-header">
+      {{#if user}}
+        Welcome, {{user.username}}!
+      {{else}}
+        Not Signed In
+      {{/if}}
+    </div>
+    {{#if user}}
+      <div class="balance">
+        <b>Balance:</b> {{user.balance}}
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          {{#each user.transactions}}
             <tr>
-                <td>{{this.coinID}}</td>
-                <td>{{this.quantity}}</td>
-                <td>{{this.rate}}</td>
-                <td class="{{this.buyOrSell}}-box">{{this.buyOrSell}}</td>
+              <td>{{this.coinID}}</td>
+              <td>{{this.quantity}}</td>
+              <td>{{this.rate}}</td>
+              <td class="{{this.buyOrSell}}-box">{{this.buyOrSell}}</td>
             </tr>
-            {{/each}}
-        </table>
-        {{else}}
-
-        <b>Not Signed in</b>
-        {{/if}}
-    </h3>
-    {{!-- <form action="/logout" method="post"> --}}
-        <button type="submit" id="logout">Logout</button>
-        {{!--
-    </form> --}}
-    {{!-- <form action="/logout/forever" method="post"> --}}
-        <button type="submit" id="delete">delete acc</button>
-        {{!--
-    </form> --}}
-    <script>
-        document.getElementById("logout").addEventListener('click', () => {
-            fetch('/logout', { method: "POST" }).then(a => a.text()).then(a => console.log(a))//(a=>{window.location.assign("/")})
-        })
-        document.getElementById("delete").addEventListener('click', () => {
-            fetch('/logout/forever', { method: "POST" }).then(a => a.text()).then(a => console.log(a))
-        })
-    </script>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    <div class="button-container">
+      <button class="action-button" id="logout">Logout</button>
+      <button class="action-button" id="delete">Delete Account</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById("logout").addEventListener('click', () => {
+      fetch('/logout', { method: "POST" }).then(a => a.text()).then(a => console.log(a))
+    })
+    document.getElementById("delete").addEventListener('click', () => {
+      fetch('/logout/forever', { method: "POST" }).then(a => a.text()).then(a => console.log(a))
+    })
+  </script>
 </body>
+</html>
+
