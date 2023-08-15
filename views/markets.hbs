@@ -1,93 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptocurrency Market</title>
-    <style>
-        /* Add your custom CSS styling here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #f2f2f2;
-        }
-        button {
-            padding: 6px 12px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+    <title>Crypto Rates</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-    <h1>Cryptocurrency Market</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Price (USD)</th>
-                <th>Buy</th>
-                <th>Sell</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Add cryptocurrency data dynamically using JavaScript -->
-        </tbody>
-    </table>
-
-    <script>
-        // Replace the following example data with real-time cryptocurrency data
-        const cryptocurrencies = [
-            { name: 'Bitcoin', symbol: 'BTC', price: 35000 },
-            { name: 'Ethereum', symbol: 'ETH', price: 2300 },
-            // Add more cryptocurrencies here
-        ];
-
-        // Function to render the cryptocurrency data into the table
-        function renderTable() {
-            const tbody = document.querySelector('tbody');
-            tbody.innerHTML = '';
-            cryptocurrencies.forEach(crypto => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${crypto.name}</td>
-                    <td>${crypto.symbol}</td>
-                    <td>$${crypto.price}</td>
-                    <td><button onclick="buy('${crypto.symbol}')">Buy</button></td>
-                    <td><button onclick="sell('${crypto.symbol}')">Sell</button></td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        // Replace these dummy functions with your actual buy and sell logic
-        function buy(symbol) {
-            alert(`Buy ${symbol}`);
-        }
-
-        function sell(symbol) {
-            alert(`Sell ${symbol}`);
-        }
-
-        // Call the renderTable function on page load
-        window.onload = renderTable;
-    </script>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Crypto Rates</h1>
+        <table class="table table-bordered table-hover" id="cryptoTable">
+            <thead class="thead-dark" id="currencies">
+                
+            </thead>
+            <tbody id="cryptoList">
+                <!-- Crypto rates will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/rates.js"></script>
 </body>
+
 </html>

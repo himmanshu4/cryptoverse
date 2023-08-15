@@ -20,8 +20,8 @@ indexRouter.get('/markets', function (req, res, next) {
 indexRouter.get('/chart', (req, res) => {
   res.render('chart', { title: 'Charts' })
 })
-indexRouter.get("/profile", (req, res) => {
-  res.render("profile", { user: req.user })
+indexRouter.get("/wallet", (req, res) => {
+  res.render("wallet", { user: req.user })
 })
 indexRouter.get("/aboutus", (req, res) => {
   res.render("aboutus")
