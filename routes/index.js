@@ -2,7 +2,6 @@ var express = require('express');
 
 const usersRouter = require('./users');
 var indexRouter = express.Router();
-const ratesRouter = require('./rates');
 const transactionRouter = require('./transaction');
 const loginRouter = require('./login');
 const signupRouter = require('./signup');
@@ -31,7 +30,6 @@ indexRouter.use('/logout', logoutRouter);
 indexRouter.use('/signup', signupRouter);
 indexRouter.use("/admin/", adminRouter);
 indexRouter.use('/users/', usersRouter);
-indexRouter.use('/rates/', ratesRouter);
 indexRouter.use('/transaction', transactionRouter);
 indexRouter.use("/api", apiRouter)
 module.exports = indexRouter;

@@ -1,0 +1,20 @@
+/* Style for Buy cells */
+thead{
+    text-align: center;
+}
+.buy-cell,.sell-cell{
+    text-align: center;
+}
+
+button {
+    padding: 6px 12px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.buy-cell>button{
+    background-color: #4CAF50;
+}
+.sell-cell>button{
+    background-color: #e61442;
+}
