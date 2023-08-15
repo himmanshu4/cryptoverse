@@ -10,7 +10,8 @@ transactionRouter.use((req, res, next) => {
     }
     next();
 })
-transactionRouter.get("/", (req, res) => {
+transactionRouter.get("/:meth", (req, res) => {
+    console.log(req.params.meth)
     res.render("transaction");
 });
 transactionRouter.post("/submit", async (req, res, next) => {
