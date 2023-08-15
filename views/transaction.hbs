@@ -4,38 +4,45 @@
 <head>
     <title>Transaction Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Add your custom CSS file -->
+    <link rel="stylesheet" href="/stylesheets/transaction.css"> <!-- Add your custom CSS file -->
 </head>
 
 <body>
     <div class="container">
-        <h1 class="mt-4 mb-4">Transaction Form</h1>
-        <form action="/transaction/submit" method="post">
-            <div class="form-group">
-                <label for="coinID">Coin ID:</label>
-                <input value="bitcoin" type="text" id="coinID" name="coinID" class="form-control" required>
+        <div class="card mt-4 mb-4">
+            <div class="card-header">
+                <h1 class="m-0">Transaction Form</h1>
             </div>
+            <div class="card-body">
+                <form action="/transaction/submit" method="post">
+                    <div class="form-group">
+                        <label for="coinID">Coin ID:</label>
+                        <input value="bitcoin" type="text" id="coinID" name="coinID" class="form-control" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input value="1" type="number" id="quantity" name="quantity" min="1" class="form-control" required>
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input value="1" type="number" id="quantity" name="quantity" min="1" class="form-control"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentPrice">Current Price:</label>
+                        <span id="currentPrice" class="font-weight-bold">Loading...</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buyOrSell">Buy/Sell:</label>
+                        <select id="buyOrSell" name="buyOrSell" class="form-control" required>
+                            <option value="buy" class="text-success">Buy</option>
+                            <option value="sell" class="text-warning">Sell</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label for="currentPrice">Current Price:</label>
-                <span id="currentPrice" class="font-weight-bold">Loading...</span>
-            </div>
-
-            <div class="form-group">
-                <label for="buyOrSell">Buy/Sell:</label>
-                <select id="buyOrSell" name="buyOrSell" class="form-control" required>
-                    <option value="buy" class="text-success">Buy</option>
-                    <option value="sell" class="text-warning">Sell</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
     </div>
     <script src="/js/transaction.js"></script> <!-- Add your custom JavaScript file -->
 </body>
