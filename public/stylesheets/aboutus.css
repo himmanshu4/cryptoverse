@@ -8,7 +8,7 @@
     margin: 0px;  
     padding: 0px;
     
-    background-image: url('a.jpg');
+    background-image: url('/image/a.jpg');
     background-position:center ;
     background-repeat: no-repeat;
     background-size: cover;
